@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+body {
+	font-family: "Unbounded", sans-serif;
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	min-height: 100dvh;
+	cursor: default;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+	overflow: hidden;
+	-webkit-user-select: none;
+	/* Safari */
+	-ms-user-select: none;
+	/* IE 10 and IE 11 */
+	user-select: none;
+	/* Standard syntax */
+}
+
+.splashscreen {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: 5;
+	backdrop-filter: blur(20px);
+	background: rgb(0, 0, 0, 0.75);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.bg {
+	z-index: -1;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	object-fit: cover;
+	object-position: center;
+	top: 0;
+	left: 0;
+	filter: blur(15px);
+	transform: scale(1.25);
+}
+
+.main {
+	padding-inline: 10px;
+	perspective: 1500px;
+}
+
+.card {
+	border: 1px solid #78726d20;
+	border-radius: .75em;
+	backdrop-filter: blur(70px);
+	background: rgba(0, 0, 0, 0.2);
+	max-width: 25rem;
+	margin-inline: auto;
+	padding: 2.5rem;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	transition: transform 300ms ease-out;
+	transform: rotate3d(0);
+}
+
+.card .tags {
+	font-size: 0.9rem;
+}
+
+.profile {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.card .pfp {
+	border-radius: 50%;
+	border: 1px solid #78726d20;
+	width: 100px;
+}
+
+.name {
+	display: inline-block;
+	align-items: center;
+	gap: .5rem;
+	margin-top: 10px;
+}
+
+.name h2 {
+	margin: 0;
+	margin-bottom: .5rem;
+}
+
+.badges {
+	display: flex;
+	gap: .75rem;
+}
+
+.badge {
+	position: relative;
+}
+
+.badge i:hover + .badgePopup {
+	animation: popupAnim 300ms;
+	opacity: 1;
+}
+
+.badgePopup:hover {
+	opacity: 0 !important;
+}
+
+.badge i {
+	font-size: 1.25rem;
+	transform: translateY(2px);
+}
+
+.badgePopup {
+	z-index: 2;
+	font-size: 0.9rem;
+	opacity: 0;
+	background: #000;
+	padding: 5px 15px;
+	border: 1px solid #ffffff59;
+	border-radius: .75em;
+	position: absolute;
+	top: -150%;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: 300ms ease-in-out;
+}
+
+.desc {
+	position: relative;
+	text-align: center;
+	margin-block: 30px;
+	filter: drop-shadow(0 0 4px #fff);
+}
+
+.desc p {
+	margin-block: 1rem;
+}
+
+.line {
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(270deg, transparent, #ffffff80 30%, #ffffff80 70%, transparent);
+}
+
+.links {
+	display: flex;
+	justify-content: center;
+	font-size: 1rem;
+	gap: .5rem;
+}
+
+.links a {
+	color: #fff;
+}
+
+.links i {
+	filter: drop-shadow(0 0 6px #fff);
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+.link {
+	position: relative;
+}
+
+.linkPopup {
+	white-space: nowrap;
+	font-size: .85rem;
+	z-index: 2;
+	opacity: 0;
+	background: #000;
+	padding: 5px 15px;
+	border: 1px solid #ffffff59;
+	border-radius: .75em;
+	position: absolute;
+	top: -110%;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: 300ms ease-in-out;
+}
+
+.link *:hover + .linkPopup {
+	animation: popupAnim 300ms;
+	opacity: 1;
+}
+
+.linkPopup:hover {
+	opacity: 0 !important;
+}
+
+.location {
+	display: flex;
+	margin-top: 2rem;
+	align-items: center;
+	justify-content: center;
+	gap: .75rem;
+	filter: drop-shadow(0 0 6px #fff);
+}
+
+.credit {
+	text-decoration: none;
+	color: #fff;
+	border: 1px solid #78726d20;
+	border-radius: .75em;
+	backdrop-filter: blur(70px);
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 7px;
+	display: flex;
+	align-items: center;
+	padding: .75rem;
+	gap: .75rem;
+	position: fixed;
+	right: 1rem;
+	bottom: 1rem;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	transition: 150ms linear;
+}
+
+.credit:hover {
+	transform: translateY(3px);
+}
+
+.credit i {
+	color: rgb(253, 95, 95);
+	font-size: 1.25rem;
+}
+
+.credit p {
+	margin: 0;
+}
+
+@media screen and (max-width: 650px) {
+	.card {
+		padding: 20px;
+	}
+
+	.card .pfp {
+		width: 90px;
+	}
+}
+
+canvas {
+	display: block;
+}
+
+#particles-js {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+@keyframes popupAnim {
+	from {
+		display: block;
+		opacity: 0;
+		transform: translateY(5px) translateX(-50%) scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0px) translateX(-50%) scale(1);
+	}
+}
